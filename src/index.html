@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Distributed Translation Client</title>
+    <script type="module" src="/main.js" defer></script>
+    <style>
+        .logo.vanilla:hover {
+            filter: drop-shadow(0 0 2em #ffe21c);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>First, install or open a model file.</h1>
+
+        <p>Already have the <strong>quantized</strong> <a href="https://huggingface.co/lmz/candle-mistral"
+                target="_blank">Mistral 7B weights</a> installed? Load them here.<br>
+            Loading the model without ample available memory may result in a system crash!</p>
+        <p id="memory"></p>
+        <form class="row" id="open-form">
+            <button type="submit" name="setup">Load weights from disk</button>
+        </form>
+        <p>or...</p>
+        <form class="row" id="install-form">
+            <button type="submit" name="setup">Install & load the weights for me</button>
+        </form>
+        <p id="status-msg" style="padding: 20px; display: none;"></p>
+        <div id="progress" style="display: none;">
+            <div id="bar"></div>
+        </div>
+        <form class="row" id="done-form" style="display: none;">
+            <button type="submit" class="green">Begin contributing</button>
+        </form>
+        <center>
+            <div class="lds-spinner" style="display: none;" id="spinner">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>    </center>
+
+    </div>
+</body>
+
+</html>

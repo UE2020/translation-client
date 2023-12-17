@@ -2,6 +2,7 @@ const { invoke } = window.__TAURI__.tauri;
 const { appDir } = window.__TAURI__.path;
 const { open } = window.__TAURI__.dialog;
 const { listen } = window.__TAURI__.event;
+const { appWindow } = window.__TAURI__.window;
 
 let isContributing = false;
 let ws;
@@ -73,7 +74,7 @@ function beginContribution() {
                 reason = "The connection was closed due to a failure to perform a TLS handshake (e.g., the server certificate can't be verified).";
             else
                 reason = "Unknown reason";
-            handleError(reason);
+            alert("Websocket closed: " + reason);
         };
         ws.onmessage = async msg => {
             document.querySelector("#spinner").style.display = "block";

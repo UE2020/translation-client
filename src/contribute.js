@@ -39,10 +39,10 @@ function beginContribution() {
         control.className = "red";
         console.log("Connecting");
         ws = new WebSocket('ws://' + document.querySelector("#begin-input").value);
-        let status = document.querySelector("#status-msg");
-        status.innerText = '';
-        setStatusReport(status, totalTranslations, started - 1);
-        status.style.display = "block";
+        let statusEl = document.querySelector("#status-msg");
+        statusEl.innerText = '';
+        setStatusReport(statusEl, totalTranslations, started - 1);
+        statusEl.style.display = "block";
         ws.onclose = event => {
             let reason;
             if (event.code == 1000)
@@ -81,7 +81,7 @@ function beginContribution() {
             if (isContributing) {
                 totalTranslations++;
                 if (translation[1] != '') {
-                    setStatusReport(status, totalTranslations, started, msg.data, translation[1]);
+                    setStatusReport(statusEl, totalTranslations, started, msg.data, translation[1]);
                 }
                 ws.send(translation[0]);
             } else {

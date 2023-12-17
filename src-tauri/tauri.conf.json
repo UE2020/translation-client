@@ -7,7 +7,7 @@
     "withGlobalTauri": true
   },
   "package": {
-    "productName": "translation-client",
+    "productName": "Translation Contribution Client",
     "version": "0.0.0"
   },
   "tauri": {
